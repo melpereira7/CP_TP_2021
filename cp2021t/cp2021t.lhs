@@ -1040,14 +1040,17 @@ clean (Bin op a b) | op==Product && (a==(N 0) || b==(N 0)) = i2 ( i2 ( i1 (op,(N
                    | otherwise = i2 ( i2 ( i1 (op,(a,b))))
 clean (Un op a) = i2 ( i2 ( i2 (op,a)))
 ---
-gopt a = (either g1 (either g2 (either g3 g4)))
-  where g1 () = a
-        g2 b = b
-        g3 (op, (x, y)) | op == Sum = x+y
-                        | op == Product && (x==0 || y==0) = 0
-                        | otherwise = x*y
-        g4 (op,x)       | op == Negate = -x
-                        | op == E = expd x
+-- gopt a = (either g1 (either g2 (either g3 g4)))
+--   where g1 () = a
+--         g2 b = b
+--         g3 (op, (x, y)) | op == Sum = x+y
+--                         | op == Product = x*y
+--         g4 (op,x)       | op == Negate = -x
+--                         | op == E = expd x
+-- Isto que está a seguir, é igual a esta definição
+gopt a = g_eval_exp a
+
+
 \end{code}
 
 \begin{code}
