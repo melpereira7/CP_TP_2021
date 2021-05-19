@@ -1023,8 +1023,7 @@ outExpAr (N a) = i2 (i1 a)
 outExpAr (Bin op a b) = i2 ( i2 ( i1 (op, (a, b))))
 outExpAr (Un op a) = i2 ( i2 ( i2 (op,a)))
 ---
---recExpAr = undefined
-recExpAr g h j k l z = baseExpAr id g h j k l z
+recExpAr f = baseExpAr id id id f f id f
 ---
 g_eval_exp a = (either g1 (either g2 (either g3 g4)))
   where g1 () = a
@@ -1033,14 +1032,6 @@ g_eval_exp a = (either g1 (either g2 (either g3 g4)))
                         | op == Product = x*y
         g4 (op,x)       | op == Negate = -x
                         | op == E = expd x
-
---g_eval_exp a X = a
---g_eval_exp a (N b) = b
---g_eval_exp a (Bin Sum (N x) (N y)) = x+y
---g_eval_exp a (Bin Product (N x) (N y)) = x*y
---g_eval_exp a (Un Negate (N x)) = -x
---g_eval_exp a (Un E (N x)) = expd x
-
 ---
 clean = undefined
 ---
