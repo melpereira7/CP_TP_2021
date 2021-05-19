@@ -13,3 +13,6 @@ c' n = (div (2 * (2*n + 1)) (n+2)) * (c n)
 
 
        -- div (fac((2*n))) ((fac((n+1))*(fac n)))
+
+
+som a b | a>b = 2*a
