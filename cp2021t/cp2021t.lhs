@@ -1028,7 +1028,7 @@ recExpAr f = baseExpAr id id id f f id f
 g_eval_exp a = (either g1 (either g2 (either g3 g4)))
   where g1 () = a
         g2 b = b
-        g3 (op, (x, y)) | op == Sum = x+y
+        g3 (op,(x,y))   | op == Sum = x+y
                         | op == Product = x*y
         g4 (op,x)       | op == Negate = -x
                         | op == E = expd x
@@ -1049,18 +1049,28 @@ clean (Un op a) = i2 ( i2 ( i2 (op,a)))
 --                         | op == E = expd x
 -- Isto que está a seguir, é igual a esta definição
 gopt a = g_eval_exp a
-
-
 \end{code}
 
 \begin{code}
 sd_gen :: Floating a =>
     Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a)))) -> (ExpAr a, ExpAr a)
-sd_gen = undefined
+sd_gen = (either g1 (either g2 (either g3 g4)))
+  where g1 () = (X, N 1)
+        g2 a = (N a, N 0)
+        g3 (op,((x1,y1),(x2,y2))) | op==Sum     = ((Bin op x1 x2),(Bin op y1 y2))
+                                  | op==Product = ((Bin op x1 x2), (Bin Sum (Bin Product x1 y2) (Bin Product y1 x2)))
+        g4 (op,(x1,x2))           | op==E       = ((Un op x1), (Bin Product (Un E x1) (x2)))
+                                  | op==Negate  = ((Un op x1), (Un op x2))
 \end{code}
 
 \begin{code}
-ad_gen = undefined
+ad_gen v = (either g1 (either g2 (either g3 g4)))
+  where g1 () = (X, 1)
+        g2 a = (N a, 0)
+        g3 (op,((x1,y1),(x2,y2))) | op==Sum     = ((Bin op x1 x2), (y1+y2))
+                                  | op==Product = ((Bin op x1 x2), (eval_exp v (Bin Sum (Bin Product x1 (N y2)) (Bin Product (N y1) x2))))
+        g4 (op,(x1,x2))           | op==E       = ((Un op x1), (eval_exp v (Un E x1))*x2)
+                                  | op==Negate  = ((Un op x1), (-x2))
 \end{code}
 
 \subsection*{Problema 2}
