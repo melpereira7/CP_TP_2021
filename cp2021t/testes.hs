@@ -1,18 +1,27 @@
+{-# OPTIONS_GHC -XNPlusKPatterns #-}
+
+import Nat
 
 
 c 0 = 1
-c n = c' (n-1)
+c (n+1) = (dividendo n)/(divisor n) * c (n)
 
 c' 0 = 1
-c' n = (div (2 * (2*n + 1)) (n+2)) * (c n)
+c' (n+1) = (dividendo n)/(divisor n) 
+
+dividendo 0 = 2
+dividendo (n+1) = 4 + dividendo n
+
+divisor 0 = 2
+divisor (n+1) = 1 + divisor n
 
 
---cat = for loop init where
-        --loop (c,c') = (c', qlq cena * c)
-        --init = (1,1)
 
 
-       -- div (fac((2*n))) ((fac((n+1))*(fac n)))
+
+cat = for loop init where
+        loop (c,dividendo,divisor) = (dividendo/divisor*c, 4+dividendo,1+divisor)
+        init = (1,2,2)
 
 
-som a b | a>b = 2*a
+

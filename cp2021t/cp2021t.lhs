@@ -1076,9 +1076,18 @@ ad_gen v = (either g1 (either g2 (either g3 g4)))
 \subsection*{Problema 2}
 Definir
 \begin{code}
-loop = undefined
-inic = undefined
-prj = undefined
+c 0 = 1
+c (n+1) = ((dividendo n) * c (n)`div`(divisor n))
+
+dividendo 0 = 2
+dividendo (n+1) = 4 + dividendo n
+
+divisor 0 = 2
+divisor (n+1) = 1 + divisor n
+
+loop (c,dividendo,divisor) = (dividendo*c`div`divisor, 4+dividendo,1+divisor)
+inic = (1,2,2)
+prj (a,b,c) = a
 \end{code}
 por forma a que
 \begin{code}
