@@ -198,6 +198,7 @@ import Cp
 import List hiding (fac)
 import Nat
 import LTree
+import BTree
 import Data.List hiding (find)
 import Test.QuickCheck hiding ((><),choose,collect)
 import qualified Test.QuickCheck as QuickCheck
@@ -1033,21 +1034,12 @@ g_eval_exp a = (either g1 (either g2 (either g3 g4)))
         g4 (op,x)       | op == Negate = -x
                         | op == E = expd x
 ---
--- clean = outExpAr 
 clean X = i1 ()
 clean (N a) = i2 (i1 a)
 clean (Bin op a b) | op==Product && (a==(N 0) || b==(N 0)) = i2 ( i2 ( i1 (op,(N 0, N 0))))
                    | otherwise = i2 ( i2 ( i1 (op,(a,b))))
 clean (Un op a) = i2 ( i2 ( i2 (op,a)))
 ---
--- gopt a = (either g1 (either g2 (either g3 g4)))
---   where g1 () = a
---         g2 b = b
---         g3 (op, (x, y)) | op == Sum = x+y
---                         | op == Product = x*y
---         g4 (op,x)       | op == Negate = -x
---                         | op == E = expd x
--- Isto que está a seguir, é igual a esta definição
 gopt a = g_eval_exp a
 \end{code}
 
@@ -1101,15 +1093,27 @@ Apresentar de seguida a justificação da solução encontrada.
 
 \begin{code}
 calcLine :: NPoint -> (NPoint -> OverTime NPoint)
-calcLine = cataList h where
-   h = undefined
+calcLine = cataList (either h1 h2) where
+    h1 () = const nil
+    h2 (p,x) =  (curry g) p x
 
+g :: (Rational, NPoint -> OverTime NPoint) -> (NPoint -> OverTime NPoint)
+g (d,f) l = case l of
+    []     -> nil
+    (x:xs) -> \z -> concat $ (sequenceA [singl . linear1d d x, f xs]) z
+   
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
-   coalg = undefined
-   alg = undefined
+   coalg [] = i1 ()
+   coalg [p] = i2 (i1 p)
+   coalg l = i2 (i2 (init l, tail l))
+   alg = (either g1 (either g2 g3)) where
+      g1 () = nil
+      g2 p = const p
+      g3 (x,y) = calcLine
 
-hyloAlgForm = undefined
+
+hyloAlgForm h g = cataBTree h . anaBTree g
 \end{code}
 
 \subsection*{Problema 4}
