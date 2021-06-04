@@ -703,7 +703,7 @@ Verifique as suas funções testando a propriedade seguinte:
 A média de uma lista não vazia e de uma \LTree\ com os mesmos elementos coincide,
 a menos de um erro de 0.1 milésimas:
 \begin{code}
-prop_avg :: Ord a => [a] -> Property
+prop_avg :: [Double] -> Property
 prop_avg = nonempty .==>. diff .<=. const 0.000001 where
    diff l = avg l - (avgLTree . genLTree) l
    genLTree = anaLTree lsplit
@@ -1101,19 +1101,17 @@ g :: (Rational, NPoint -> OverTime NPoint) -> (NPoint -> OverTime NPoint)
 g (d,f) l = case l of
     []     -> nil
     (x:xs) -> \z -> concat $ (sequenceA [singl . linear1d d x, f xs]) z
-   
+
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
-   coalg [] = i1 ()
-   coalg [p] = i2 (i1 p)
-   coalg l = i2 (i2 (init l, tail l))
-   alg = (either g1 (either g2 g3)) where
-      g1 () = nil
-      g2 p = const p
-      g3 (x,y) = calcLine
-
-
-hyloAlgForm h g = cataBTree h . anaBTree g
+   coalg [] = i1 nil
+   coalg [p] = i1 (const p)
+   coalg l = i2 ((init l),(tail l))
+   alg = either g1 g2 where
+      g1 l = l 
+      g2 (l1,l2) = \pt -> (calcLine (l1 pt) (l2 pt)) pt
+      
+hyloAlgForm h g = cataLTree h . anaLTree g
 \end{code}
 
 \subsection*{Problema 4}
@@ -1124,12 +1122,21 @@ avg = p1.avg_aux
 \end{code}
 
 \begin{code}
-avg_aux = undefined
+outNonEmptyList [a]   = i1 (a)
+outNonEmptyList (a:x) = i2 (a,x)
+
+cataNonEmptyList g   = g . recList (cataNonEmptyList g) . outNonEmptyList   
+         
+avg_aux = cataNonEmptyList (either g1 g2) where
+    g1 a = (a,1)
+    g2 (a,(b,c)) = ((a+c*b)/(c+1),c+1)
 \end{code}
 Solução para árvores de tipo \LTree:
 \begin{code}
 avgLTree = p1.cataLTree gene where
-   gene = undefined
+   gene = either g1 g2 where
+      g1 a = (a,1)
+      g2 ((a1,b1),(a2,b2)) = ((a1*b1+a2*b2)/(b1+b2),b1+b2)
 \end{code}
 
 \subsection*{Problema 5}
