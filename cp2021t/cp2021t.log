@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.4)  4 JUN 2021 11:25
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2021.6.4)  13 JUN 2021 20:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**cp2021t
+**cp2021t.tex
 (./cp2021t.tex
 LaTeX2e <2020-02-02> patch level 2
 L3 programming layer <2020-02-14>
@@ -605,10 +605,7 @@ LaTeX Info: Redefining \nameref on input line 302.
 (./cp2021t.out) (./cp2021t.out
 ! I can't write on file `cp2021t.pdf'.
 (Press Enter to retry, or Control-D to exit; default file extension is `.pdf')
-Please type another file name for output: cp2021t.pdf
-! I can't write on file `cp2021t.pdf'.
-(Press Enter to retry, or Control-D to exit; default file extension is `.pdf')
-Please type another file name for output: cp2021t.pdf
+Please type another file name for output: hello
 )
 \@outlinefile=\write7
 \openout7 = `cp2021t.out'.
@@ -892,101 +889,143 @@ Overfull \hbox (8.57883pt too wide) in paragraph at lines 1429--1478
 \openout5 = `cp2021t.ptb'.
 
 [12]
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \global 
+l.1583 \just\equiv{ fusão-+ ; universal-+ }
+                                            
+? 
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \global 
+l.1594 ... ; igualdade extensional ; def-comp ;  }
+                                                  
+? 
+! Missing delimiter (. inserted).
+<to be read again> 
+                   \global 
+l.1604 \qed
+           
+? 
+
+Overfull \hbox (58.51912pt too wide) in alignment at lines 1561--1605
+ [][][] []
+ []
+
+\openout5 = `cp2021t.ptb'.
+
+<xymatrix 2x2 191>
+\openout5 = `cp2021t.ptb'.
+
+ [13] <xymatrix 2x2 191>
+Overfull \hbox (9.10149pt too wide) in alignment at lines 1652--1666
+ [][][] []
+ []
+
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
 
+\openout5 = `cp2021t.ptb'.
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][][][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][][][][][] 
  []
 
 
-Overfull \hbox (103.62514pt too wide) in paragraph at lines 1623--1659
+Overfull \hbox (103.62514pt too wide) in paragraph at lines 1739--1775
  [][][][] 
  []
 
 \openout5 = `cp2021t.ptb'.
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][] 
  []
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][][][] 
  []
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][][][] 
  []
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][][][][][] 
  []
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][][][] 
  []
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][][][][][][][] 
  []
 
 
-Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
+Overfull \hbox (145.51859pt too wide) in paragraph at lines 1785--1815
  [][][][] 
  []
 
-\openout5 = `cp2021t.ptb'.
-
-[13]
-\openout5 = `cp2021t.ptb'.
-
+[14]
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
 
+\openout5 = `cp2021t.ptb'.
+
+ [15]
+\openout5 = `cp2021t.ptb'.
+
+ <xymatrix 3x2
+
+LaTeX Font Warning: Command \footnotesize invalid in math mode on input line 19
+60.
+
+239> <xymatrix 2x2 188>
 \openout5 = `cp2021t.ptb'.
 
 \openout5 = `cp2021t.ptb'.
@@ -994,12 +1033,12 @@ Overfull \hbox (145.51859pt too wide) in paragraph at lines 1661--1691
 
 No file cp2021t.ind.
 No file cp2021t.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1857.
-[14] [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1857.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2040.
+[16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2040.
  (./cp2021t.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1857.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1857.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2040.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2040.
 
 Package rerunfilecheck Info: File `cp2021t.out' has not changed.
 (rerunfilecheck)             Checksum: 7ABFEEFBC6EDEE4EAEC2BDEF142178CE;514.
@@ -1007,46 +1046,47 @@ Package rerunfilecheck Info: File `cp2021t.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1857.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2040.
  ) 
 Here is how much of TeX's memory you used:
  13374 strings out of 483090
- 194522 string characters out of 5963930
- 526985 words of memory out of 5000000
- 27991 multiletter control sequences out of 15000+600000
+ 194487 string characters out of 5963930
+ 525985 words of memory out of 5000000
+ 27989 multiletter control sequences out of 15000+600000
  567979 words of font info for 125 fonts, out of 8000000 for 9000
  61 hyphenation exceptions out of 8191
- 48i,18n,77p,3290b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 48i,19n,77p,3294b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
-7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/stmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/cour
-ier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/xypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xypi
-c/xybtip10.pfb>
-Output written on cp2021t.pdf (15 pages, 333854 bytes).
+f-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb><
+/usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/s
+tmaryrd/stmary10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/ucr
+r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/urw/palatino/uplri8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/x
+ypic/xyatip10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/xypic/xybti
+p10.pfb>
+Output written on hello.pdf (16 pages, 355658 bytes).
 PDF statistics:
- 361 PDF objects out of 1000 (max. 8388607)
- 311 compressed objects within 4 object streams
- 73 named destinations out of 1000 (max. 500000)
+ 369 PDF objects out of 1000 (max. 8388607)
+ 317 compressed objects within 4 object streams
+ 74 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

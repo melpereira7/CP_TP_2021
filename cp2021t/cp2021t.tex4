@@ -1555,8 +1555,6 @@ São dadas:
 \end{hscode}\resethooks
 Definir:
 
-Sabe-se que in e out são isomorfismos, logo, out . in = id.
-
 \begin{eqnarray*}
 \start
 	\ensuremath{\Varid{out}\comp \mathbf{in}\mathrel{=}\Varid{id}}
@@ -1565,7 +1563,7 @@ Sabe-se que in e out são isomorfismos, logo, out . in = id.
 %
   \ensuremath{\Varid{out}\comp \alt{\underline{\Conid{X}}}{\Varid{num\char95 ops}}\mathrel{=}\Varid{id}}
 %
-\just\equiv{ pelo enunciado : num\_ops = either N ops ; fusão-+ ; universal-+ }
+\just\equiv{ pelo enunciado : num_ops = either N ops}
 %
   \ensuremath{\begin{lcbr}\Varid{out}\comp \underline{\Conid{X}}\mathrel{=}\Varid{id}\comp i_1\\\Varid{out}\comp \alt{\Conid{N}}{\Varid{ops}}\mathrel{=}\Varid{id}\comp i_2\end{lcbr}}
 %
@@ -1590,22 +1588,25 @@ Sabe-se que in e out são isomorfismos, logo, out . in = id.
   \end{array}
   \right
 %
-\just\equiv{ def. bin (op,(a,b)) = Bin op a b ; uncurry aplicado ao ponto ; natural-id ; igualdade extensional ; def-comp ;  }
+\just\equiv{ pelo enunciado : bin (op,(a,b)) = Bin op a b ; natural-id ; igualdade extensional ; def-comp ;  }
 %
   \left\{
    \begin{array}{llll}
       \ensuremath{\Varid{out}\;\Conid{X}\mathrel{=}i_1\;()}\\
       \ensuremath{\Varid{out}\;(\Conid{N}\;\Varid{a})\mathrel{=}i_2\;(i_1\;\Varid{a})}\\
       \ensuremath{\Varid{out}\;(\Conid{Bin}\;\Varid{op}\;\Varid{a}\;\Varid{b})\mathrel{=}i_2\;(i_2\;(i_1\;(\Varid{op},(\Varid{a},\Varid{b}))))}\\
-      \ensuremath{\Varid{out}\;(\Conid{Un}\;\Varid{op}\;\Varid{a})\mathrel{=}i_2\;(i_2\;(i_2\;(\Varid{op},\Varid{a})))}
+      \ensuremath{\Varid{out}\;\uncurry{\Conid{Un}}\;(\Varid{op},\Varid{a})\mathrel{=}i_2\;(i_2\;(i_2\;(\Varid{op},\Varid{a})))}
   \end{array}
   \right
 \qed
 \end{eqnarray*}
 
-Então:
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{20}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{outExpAr}\;\Conid{X}\mathrel{=}i_1\;(){}\<[E]%
 \\
@@ -1614,64 +1615,13 @@ Então:
 \>[B]{}\Varid{outExpAr}\;(\Conid{Bin}\;\Varid{op}\;\Varid{a}\;\Varid{b})\mathrel{=}i_2\;(i_2\;(i_1\;(\Varid{op},(\Varid{a},\Varid{b})))){}\<[E]%
 \\
 \>[B]{}\Varid{outExpAr}\;(\Conid{Un}\;\Varid{op}\;\Varid{a})\mathrel{=}i_2\;(i_2\;(i_2\;(\Varid{op},\Varid{a}))){}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-Sabe-se ainda, pela lei Base-cata (49 do formulário) que F f = B(id,f).
-Pelo diagrama seguinte podemos confirmar que, comparando com a definição de baseExpAr,
-as únicas funções que pervalecem no functor F são as funções j, k e z, no entanto,
-no functor, estas serão todas a mesma, que no caso é o catamorfismo.
-
-\begin{eqnarray*}
-\xymatrix@C=2cm{
-    \ensuremath{\Conid{ExpAr}}
-           \ar[d]_-{\ensuremath{\cata{\Varid{g}}}}
-&
-    \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\mathbin{+}\Conid{BinOp}\times} {\ensuremath{\Conid{ExpAr}}^2} \ensuremath{\mathbin{+}\Conid{UnOp}\times\Conid{ExpAr}}
-           \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\mathbin{+}\Varid{id}\times} {\ensuremath{\cata{\Varid{g}}}^2} \ensuremath{\mathbin{+}\Varid{id}\times\cata{\Varid{g}}}}
-           \ar[l]_-{\ensuremath{\Varid{inExpAr}}}
 \\
-     \ensuremath{\Conid{F}}
-&
-     \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\mathbin{+}\Conid{BinOp}\times} {\ensuremath{\Conid{F}}^2} \ensuremath{\mathbin{+}\Conid{UnOp}\times\Conid{F}}
-           \ar[l]^-{\ensuremath{\Varid{g}}}
-}
-\end{eqnarray*}
-
-Assim, podemos inferir o seguinte:
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\\
 \>[B]{}\Varid{recExpAr}\;\Varid{f}\mathrel{=}\Varid{baseExpAr}\;\Varid{id}\;\Varid{id}\;\Varid{id}\;\Varid{f}\;\Varid{f}\;\Varid{id}\;\Varid{f}{}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-Passemos ao desenho do diagrama do catamorfismo eval\_exp:
-
-\begin{eqnarray*}
-\xymatrix@C=2cm{
-    \ensuremath{\Conid{ExpAr}}
-           \ar[d]_-{\ensuremath{\Varid{eval\char95 exp}\mathrel{=}\cata{\Varid{g\char95 eval\char95 exp}}}}
-&
-    \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\mathbin{+}\Conid{BinOp}\times} {\ensuremath{\Conid{ExpAr}}^2} \ensuremath{\mathbin{+}\Conid{UnOp}\times\Conid{ExpAr}}
-           \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\mathbin{+}\Varid{id}\times} {\ensuremath{\cata{\Varid{g\char95 eval\char95 exp}}}^2} \ensuremath{\mathbin{+}\Varid{id}\times\cata{\Varid{g\char95 eval\char95 exp}}}}
-           \ar[l]_-{\ensuremath{\Varid{inExpAr}}}
 \\
-     \ensuremath{\Conid{F}}
-&
-     \ensuremath{\mathrm{1}\mathbin{+}\Conid{A}\mathbin{+}\Conid{BinOp}\times} {\ensuremath{\Conid{F}}^2} \ensuremath{\mathbin{+}\Conid{UnOp}\times\Conid{F}}
-           \ar[l]^-{\ensuremath{\Varid{g\char95 eval\char95 exp}}}
-}
-\end{eqnarray*}
-
-Daqui podemos inferir o seguinte:
-
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{3}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{9}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{25}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\\
 \>[B]{}\Varid{g\char95 eval\char95 exp}\;\Varid{a}\mathrel{=}\alt{\Varid{g1}}{\alt{\Varid{g2}}{\alt{\Varid{g3}}{\Varid{g4}}}}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
@@ -1691,49 +1641,25 @@ Daqui podemos inferir o seguinte:
 \>[25]{}\mid \Varid{op}\equiv \Conid{Negate}\mathrel{=}\mathbin{-}\Varid{x}{}\<[E]%
 \\
 \>[25]{}\mid \Varid{op}\equiv \Conid{E}\mathrel{=}\Varid{expd}\;\Varid{x}{}\<[E]%
-\ColumnHook
-\end{hscode}\resethooks
-
-Para encontrar o hilomorfismo pedido, comçamos por tentar entender qual seria
-a parte de divisão e qual a parte de conquista. Depressa percebermos que
-na parte de divisão é onde devem ser tratados os casos de elementos
-neutros, e a parte da conquista deve ser apenas sobre o cálculo do valor da expressão.
-
-Considerando as operações possíveis de realizar neste tipo ExpAr, o único elemento
-neutro existente é o 0 na multplicação. Assim, sempre que pelo menos uma das parcelas
-do produto é zero, em vez dessa expressão produto passamos a ter o número 0, pois o
-resultado da multiplicação por 0 é sempre 0.
-
-Depois de fazer esta "limpeza" à expressão no anamorfismo, o que se segue é simplesmente
-efetuar o seu cálculo, para isso temos já definido em cima o catamorfismo
-eval\_exp com o gene g\_eval\_exp.
-
-Ficamos então com o seguinte:
-
-\begin{hscode}\SaveRestoreHook
-\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{20}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
+\\
+\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\\
 \>[B]{}\Varid{clean}\;\Conid{X}\mathrel{=}i_1\;(){}\<[E]%
 \\
 \>[B]{}\Varid{clean}\;(\Conid{N}\;\Varid{a})\mathrel{=}i_2\;(i_1\;\Varid{a}){}\<[E]%
 \\
-\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Varid{op}\;\Varid{a}\;\Varid{b})\mid \Varid{op}\equiv \Conid{Product}\mathrel{\wedge}(\Varid{a}\equiv (\Conid{N}\;\mathrm{0})\mathrel{\vee}\Varid{b}\equiv (\Conid{N}\;\mathrm{0}))\mathrel{=}i_2\;(i_1\;\mathrm{0}){}\<[E]%
+\>[B]{}\Varid{clean}\;(\Conid{Bin}\;\Varid{op}\;\Varid{a}\;\Varid{b})\mid \Varid{op}\equiv \Conid{Product}\mathrel{\wedge}(\Varid{a}\equiv (\Conid{N}\;\mathrm{0})\mathrel{\vee}\Varid{b}\equiv (\Conid{N}\;\mathrm{0}))\mathrel{=}i_2\;(i_2\;(i_1\;(\Varid{op},(\Conid{N}\;\mathrm{0},\Conid{N}\;\mathrm{0})))){}\<[E]%
 \\
 \>[B]{}\hsindent{20}{}\<[20]%
 \>[20]{}\mid \Varid{otherwise}\mathrel{=}i_2\;(i_2\;(i_1\;(\Varid{op},(\Varid{a},\Varid{b})))){}\<[E]%
 \\
 \>[B]{}\Varid{clean}\;(\Conid{Un}\;\Varid{op}\;\Varid{a})\mathrel{=}i_2\;(i_2\;(i_2\;(\Varid{op},\Varid{a}))){}\<[E]%
-\\[\blanklineskip]%
+\\
+\>[B]{}\mbox{\onelinecomment }{}\<[E]%
+\\
 \>[B]{}\Varid{gopt}\;\Varid{a}\mathrel{=}\Varid{g\char95 eval\char95 exp}\;\Varid{a}{}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
-Para os seguintes genes, o raciocínio foi simplesmente seguir as regras dadas
-no enunciado, sabendo também que agora, para cada expressão, é recebeido um par,
-sendo o primeiro elemento do par a expressão original e o segundo a expressão derivada.
-
-Chegamos assim ao seguinte resultado:
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1772,14 +1698,6 @@ Chegamos assim ao seguinte resultado:
 \>[49]{}\mathrel{=}((\Conid{Un}\;\Varid{op}\;\Varid{x1}),(\Conid{Un}\;\Varid{op}\;\Varid{x2})){}\<[E]%
 \ColumnHook
 \end{hscode}\resethooks
-
-A diferença do anterior para o seguinte gene é apenas que em vez de devolver
-uma expressão, devolvemos o resultado do cálulo dessa expressão. Para isso,
-em alguns casos, onde é necessário efetuar o cálculo de uma expressão substituindo
-a incógnita e não apenas o cálculo entre dois números, foi necessário recorrer ao
-catamorfismo eval\_exp, já acima definido.
-
-Obtemos então a seguinte definição de ad\_gen:
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1848,30 +1766,6 @@ seja a função pretendida.
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
-
-Apartir da fórmula dada no enunciado, foi possível encontrar a seguinte fórmula recursiva para
-o cálculo do número de Catalan:
-\begin{eqnarray}
-	C_{n+1} = \frac{4n + 2}{n + 2} * C_n
-\end{eqnarray}
-
-Depois de encontrada a fórmula foi fácil de perceber, a partir de exemplos mostrados
-nas aulas, que seria necessário transformar a divisão em funções recursivas, uma que 
-calcula o dividendo e outra o divisor.
-Sendo ambas equações lineares, foi fácil seguir o exemplo mostrado nas aulas que está
-presente no caderno da disciplina.
-Assim se chegou às funções recursivas dividendo e divisor.
-
-A maior dificuldade foi o próximo passo, os valores não eram os corretos com a divisão
-inteira, e o grupo não estava a conseguir perceber o que poderia fazer para contornar
-essa situação. No entanto depois de o professor esclarecer a dúvida, foi rapidamente
-entendido que resultaria se simplesmente se fizesse a multiplicação primeiro e só 
-depois a divisão.
-
-Depois de encontrar a definição das funções com recursividade mútua para o cálculo do 
-número de Catalan foi apenas necessário seguir as regras de algibeira disponibilizadas
-no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
-
 \subsection*{Problema 3}
 
 \begin{hscode}\SaveRestoreHook
@@ -1932,8 +1826,6 @@ no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
 
 \subsection*{Problema 4}
 
-A resolução deste problema baseou-se em diagramas.
-
 Solução para listas não vazias:
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1942,42 +1834,10 @@ Solução para listas não vazias:
 \ColumnHook
 \end{hscode}\resethooks
 
-\begin{eqnarray*}
-\xymatrix@C=2cm{
-&     {\ensuremath{\Conid{A}}^*}
-           \ar[ld]^-{\ensuremath{\Varid{avg}}}
-           \ar[d]_{\footnotesize{\ensuremath{\conj{\Varid{avg}}{\length }}}}
-           \ar[rd]_-{\ensuremath{\length }}
-\\
-      \ensuremath{\Conid{B}}
-&
-      \ensuremath{\Conid{B}\times}{\ensuremath{\N}^+}
-           \ar[l]^-{\ensuremath{\p1}}
-           \ar[r]^-{\ensuremath{\p2}}
-&
-      {\ensuremath{\N}^+}
-}
-\end{eqnarray*}
-
-\begin{eqnarray*}
-\xymatrix@C=2cm{
-    {\ensuremath{\Conid{A}}^*}
-           \ar[d]_-{\ensuremath{\conj{\Varid{avg}}{\length }\mathrel{=}\cata{\alt{\Varid{b}}{\Varid{q}}}}}
-&
-    \ensuremath{\Conid{A}\mathbin{+}\Conid{A}\times}{\ensuremath{\Conid{A}}^*}
-            \ar[l]_{\ensuremath{\mathbf{in}}}
-            \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times\cata{\alt{\Varid{b}}{\Varid{q}}}}}
-\\
-     \ensuremath{\Conid{B}\times}{\ensuremath{\N}^+}
-&
-     \ensuremath{\Conid{A}\mathbin{+}\Conid{A}\times\Conid{B}\times}{\ensuremath{\N}^+}
-           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}}}
-}
-\end{eqnarray*}
-
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{22}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{23}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{outNonEmptyList}\;[\mskip1.5mu \Varid{a}\mskip1.5mu]{}\<[23]%
@@ -1985,7 +1845,8 @@ Solução para listas não vazias:
 \\
 \>[B]{}\Varid{outNonEmptyList}\;(\Varid{a}\mathbin{:}\Varid{x})\mathrel{=}i_2\;(\Varid{a},\Varid{x}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{cataNonEmptyList}\;\Varid{g}\mathrel{=}\Varid{g}\comp \Varid{recList}\;(\Varid{cataNonEmptyList}\;\Varid{g})\comp \Varid{outNonEmptyList}{}\<[E]%
+\>[B]{}\Varid{cataNonEmptyList}\;\Varid{g}{}\<[22]%
+\>[22]{}\mathrel{=}\Varid{g}\comp \Varid{recList}\;(\Varid{cataNonEmptyList}\;\Varid{g})\comp \Varid{outNonEmptyList}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{avg\char95 aux}\mathrel{=}\Varid{cataNonEmptyList}\;\alt{\Varid{g1}}{\Varid{g2}}\;\mathbf{where}{}\<[E]%
 \\
@@ -1997,8 +1858,6 @@ Solução para listas não vazias:
 \ColumnHook
 \end{hscode}\resethooks
 Solução para árvores de tipo \LTree:
-
-
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{4}{@{}>{\hspre}l<{\hspost}@{}}%

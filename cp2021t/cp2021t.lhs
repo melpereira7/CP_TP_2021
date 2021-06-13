@@ -73,6 +73,7 @@
 %format inNat = "\mathsf{in}"
 %format (cataNat (g)) = "\cata{" g "}"
 %format Nat0 = "\N_0"
+%format Nat = "\N"
 %format Rational = "\Q "
 %format toRational = " to_\Q "
 %format fromRational = " from_\Q "
@@ -992,7 +993,7 @@ f .&&&. g = \a -> ((f a) && (g a))
 Os alunos devem colocar neste anexo as suas soluções para os exercícios
 propostos, de acordo com o "layout" que se fornece. Não podem ser
 alterados os nomes ou tipos das funções dadas, mas pode ser adicionado
-texto, disgramas e/ou outras funções auxiliares que sejam necessárias.
+texto, diagramas e/ou outras funções auxiliares que sejam necessárias.
 
 Valoriza-se a escrita de \emph{pouco} código que corresponda a soluções
 simples e elegantes. 
@@ -1018,14 +1019,113 @@ ad v = p2 . cataExpAr (ad_gen v)
 \end{code}
 Definir:
 
+Sabe-se que in e out são isomorfismos, logo, out . in = id.
+
+\begin{eqnarray*}
+\start
+	|out . in = id|
+%
+\just\equiv{ def. de inExpAr pelo enunciado }
+%
+  |out . (either (const X) num_ops) = id|
+%
+\just\equiv{ pelo enunciado : num\_ops = either N ops ; fusão-+ ; universal-+ }
+%
+  |lcbr(
+    out . const X = id . i1
+  )(
+    out . either N ops = id . i2
+  )|
+%
+\just\equiv{ pelo enunciado : ops = either bin (uncurry Un) ; fusão-+ ; universal-+ }
+%
+  \left\{
+    \begin{array}{lll}
+      |out . const X = id . i1|\\
+      |out . N = id . i2 . i1|\\
+      |out . either bin (uncurry Un) = id . i2 . i2|
+    \end{array}
+  \right
+%
+\just\equiv{ fusão-+ ; universal-+ }
+%
+  \left\{
+   \begin{array}{llll}
+      |out . const X = id . i1|\\
+      |out . N = id . i2 . i1|\\
+      |out . bin = id . i2 . i2 . i1|\\
+      |out . (uncurry Un) = id . i2 . i2 . i2|
+  \end{array}
+  \right
+%
+\just\equiv{ def. bin (op,(a,b)) = Bin op a b ; uncurry aplicado ao ponto ; natural-id ; igualdade extensional ; def-comp ;  }
+%
+  \left\{
+   \begin{array}{llll}
+      |out X = i1 () |\\
+      |out (N a) = i2 (i1 a) |\\
+      |out (Bin op a b) = i2 (i2 (i1 (op,(a,b)))) |\\
+      |out (Un op a) = i2 (i2 (i2 (op,a)))|
+  \end{array}
+  \right
+\qed
+\end{eqnarray*}
+
+Então:
 \begin{code}
 outExpAr X = i1 ()
 outExpAr (N a) = i2 (i1 a)
-outExpAr (Bin op a b) = i2 ( i2 ( i1 (op, (a, b))))
+outExpAr (Bin op a b) = i2 ( i2 ( i1 (op,(a,b))))
 outExpAr (Un op a) = i2 ( i2 ( i2 (op,a)))
----
+\end{code}
+
+Sabe-se ainda, pela lei Base-cata (49 do formulário) que F f = B(id,f).
+Pelo diagrama seguinte podemos confirmar que, comparando com a definição de baseExpAr,
+as únicas funções que pervalecem no functor F são as funções j, k e z, no entanto,
+no functor, estas serão todas a mesma, que no caso é o catamorfismo.
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+    |ExpAr|
+           \ar[d]_-{|cata g|}
+&
+    |1 + A + BinOp ><| {|ExpAr|^2} |+ UnOp >< ExpAr|
+           \ar[d]^{|id + id + id ><| {|(cata g)|^2} |+ id >< (cata g) |}
+           \ar[l]_-{|inExpAr|}
+\\
+     |F|
+&
+     |1 + A + BinOp ><| {|F|^2} |+ UnOp >< F|
+           \ar[l]^-{|g|}
+}
+\end{eqnarray*}
+
+Assim, podemos inferir o seguinte:
+\begin{code}
 recExpAr f = baseExpAr id id id f f id f
----
+\end{code}
+
+Passemos ao desenho do diagrama do catamorfismo eval\_exp:
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+    |ExpAr|
+           \ar[d]_-{|eval_exp = cata g_eval_exp|}
+&
+    |1 + A + BinOp ><| {|ExpAr|^2} |+ UnOp >< ExpAr|
+           \ar[d]^{|id + id + id ><| {|(cata g_eval_exp)|^2} |+ id >< (cata g_eval_exp) |}
+           \ar[l]_-{|inExpAr|}
+\\
+     |F|
+&
+     |1 + A + BinOp ><| {|F|^2} |+ UnOp >< F|
+           \ar[l]^-{|g_eval_exp|}
+}
+\end{eqnarray*}
+
+Daqui podemos inferir o seguinte:
+
+\begin{code}
 g_eval_exp a = (either g1 (either g2 (either g3 g4)))
   where g1 () = a
         g2 b = b
@@ -1033,15 +1133,39 @@ g_eval_exp a = (either g1 (either g2 (either g3 g4)))
                         | op == Product = x*y
         g4 (op,x)       | op == Negate = -x
                         | op == E = expd x
----
+\end{code}
+
+Para encontrar o hilomorfismo pedido, comçamos por tentar entender qual seria
+a parte de divisão e qual a parte de conquista. Depressa percebermos que
+na parte de divisão é onde devem ser tratados os casos de elementos
+neutros, e a parte da conquista deve ser apenas sobre o cálculo do valor da expressão.
+
+Considerando as operações possíveis de realizar neste tipo ExpAr, o único elemento
+neutro existente é o 0 na multplicação. Assim, sempre que pelo menos uma das parcelas
+do produto é zero, em vez dessa expressão produto passamos a ter o número 0, pois o
+resultado da multiplicação por 0 é sempre 0.
+
+Depois de fazer esta "limpeza" à expressão no anamorfismo, o que se segue é simplesmente
+efetuar o seu cálculo, para isso temos já definido em cima o catamorfismo
+eval\_exp com o gene g\_eval\_exp.
+
+Ficamos então com o seguinte:
+
+\begin{code}
 clean X = i1 ()
 clean (N a) = i2 (i1 a)
-clean (Bin op a b) | op==Product && (a==(N 0) || b==(N 0)) = i2 ( i2 ( i1 (op,(N 0, N 0))))
+clean (Bin op a b) | op==Product && (a==(N 0) || b==(N 0)) = i2 ( i1 0)
                    | otherwise = i2 ( i2 ( i1 (op,(a,b))))
 clean (Un op a) = i2 ( i2 ( i2 (op,a)))
----
+
 gopt a = g_eval_exp a
 \end{code}
+
+Para os seguintes genes, o raciocínio foi simplesmente seguir as regras dadas
+no enunciado, sabendo também que agora, para cada expressão, é recebeido um par,
+sendo o primeiro elemento do par a expressão original e o segundo a expressão derivada.
+
+Chegamos assim ao seguinte resultado:
 
 \begin{code}
 sd_gen :: Floating a =>
@@ -1054,6 +1178,14 @@ sd_gen = (either g1 (either g2 (either g3 g4)))
         g4 (op,(x1,x2))           | op==E       = ((Un op x1), (Bin Product (Un E x1) (x2)))
                                   | op==Negate  = ((Un op x1), (Un op x2))
 \end{code}
+
+A diferença do anterior para o seguinte gene é apenas que em vez de devolver
+uma expressão, devolvemos o resultado do cálulo dessa expressão. Para isso,
+em alguns casos, onde é necessário efetuar o cálculo de uma expressão substituindo
+a incógnita e não apenas o cálculo entre dois números, foi necessário recorrer ao
+catamorfismo eval\_exp, já acima definido.
+
+Obtemos então a seguinte definição de ad\_gen:
 
 \begin{code}
 ad_gen v = (either g1 (either g2 (either g3 g4)))
@@ -1089,6 +1221,30 @@ seja a função pretendida.
 \textbf{NB}: usar divisão inteira.
 Apresentar de seguida a justificação da solução encontrada.
 
+
+Apartir da fórmula dada no enunciado, foi possível encontrar a seguinte fórmula recursiva para
+o cálculo do número de Catalan:
+\begin{eqnarray}
+	C_{n+1} = \frac{4n + 2}{n + 2} * C_n
+\end{eqnarray}
+
+Depois de encontrada a fórmula foi fácil de perceber, a partir de exemplos mostrados
+nas aulas, que seria necessário transformar a divisão em funções recursivas, uma que 
+calcula o dividendo e outra o divisor.
+Sendo ambas equações lineares, foi fácil seguir o exemplo mostrado nas aulas que está
+presente no caderno da disciplina.
+Assim se chegou às funções recursivas dividendo e divisor.
+
+A maior dificuldade foi o próximo passo, os valores não eram os corretos com a divisão
+inteira, e o grupo não estava a conseguir perceber o que poderia fazer para contornar
+essa situação. No entanto depois de o professor esclarecer a dúvida, foi rapidamente
+entendido que resultaria se simplesmente se fizesse a multiplicação primeiro e só 
+depois a divisão.
+
+Depois de encontrar a definição das funções com recursividade mútua para o cálculo do 
+número de Catalan foi apenas necessário seguir as regras de algibeira disponibilizadas
+no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
+
 \subsection*{Problema 3}
 
 \begin{code}
@@ -1116,22 +1272,59 @@ hyloAlgForm h g = cataLTree h . anaLTree g
 
 \subsection*{Problema 4}
 
+A resolução deste problema baseou-se em diagramas.
+
 Solução para listas não vazias:
 \begin{code}
 avg = p1.avg_aux
 \end{code}
 
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+&     {|A|^*}
+           \ar[ld]^-{|avg|}
+           \ar[d]_{\footnotesize{|split avg length|}}
+           \ar[rd]_-{|length|}
+\\
+      |B|
+&
+      |B ><|{|Nat|^+}
+           \ar[l]^-{|p1|}
+           \ar[r]^-{|p2|}
+&
+      {|Nat|^+}
+}
+\end{eqnarray*}
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+    {|A|^*}
+           \ar[d]_-{|(split avg length) = (cata (either b q))|}
+&
+    |A + A ><|{|A|^*}
+            \ar[l]_{|in|}
+            \ar[d]^{|id + id >< (cata (either b q))|}
+\\
+     |B ><|{|Nat|^+}
+&
+     |A + A >< B ><|{|Nat|^+}
+           \ar[l]^-{|g = either g1 g2|}
+}
+\end{eqnarray*}
+
 \begin{code}
 outNonEmptyList [a]   = i1 (a)
 outNonEmptyList (a:x) = i2 (a,x)
 
-cataNonEmptyList g   = g . recList (cataNonEmptyList g) . outNonEmptyList   
+cataNonEmptyList g = g . recList (cataNonEmptyList g) . outNonEmptyList   
          
 avg_aux = cataNonEmptyList (either g1 g2) where
     g1 a = (a,1)
     g2 (a,(b,c)) = ((a+c*b)/(c+1),c+1)
 \end{code}
 Solução para árvores de tipo \LTree:
+
+
 \begin{code}
 avgLTree = p1.cataLTree gene where
    gene = either g1 g2 where
