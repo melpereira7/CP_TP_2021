@@ -590,39 +590,39 @@ designa \ensuremath{\Varid{x}\mathbin{+}\mathrm{10}} na notação matemática ha
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{prop\char95 sum\char95 idr}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 sum\char95 idr}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 sum\char95 idr}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{sum\char95 idr}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{sum\char95 idr}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Bin}\;\Conid{Sum}\;\Varid{exp}\;(\Conid{N}\;\mathrm{0})){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 sum\char95 idl}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 sum\char95 idl}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 sum\char95 idl}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{sum\char95 idl}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{sum\char95 idl}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Bin}\;\Conid{Sum}\;(\Conid{N}\;\mathrm{0})\;\Varid{exp}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 product\char95 idr}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 product\char95 idr}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 product\char95 idr}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{prod\char95 idr}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{prod\char95 idr}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{exp}\;(\Conid{N}\;\mathrm{1})){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 product\char95 idl}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 product\char95 idl}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 product\char95 idl}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{prod\char95 idl}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{prod\char95 idl}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Bin}\;\Conid{Product}\;(\Conid{N}\;\mathrm{1})\;\Varid{exp}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 e\char95 id}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 e\char95 id}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 e\char95 id}\;\Varid{a}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Un}\;\Conid{E}\;(\Conid{N}\;\mathrm{1}))\equiv \Varid{expd}\;\mathrm{1}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 negate\char95 id}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 negate\char95 id}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 negate\char95 id}\;\Varid{a}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Un}\;\Conid{Negate}\;(\Conid{N}\;\mathrm{0}))\equiv \mathrm{0}{}\<[E]%
 \ColumnHook
@@ -633,7 +633,7 @@ designa \ensuremath{\Varid{x}\mathbin{+}\mathrm{10}} na notação matemática ha
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{prop\char95 double\char95 negate}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 double\char95 negate}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 double\char95 negate}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{eval\char95 exp}\;\Varid{a}\;(\Conid{Un}\;\Conid{Negate}\;(\Conid{Un}\;\Conid{Negate}\;\Varid{exp})){}\<[E]%
 \ColumnHook
@@ -657,7 +657,7 @@ designa \ensuremath{\Varid{x}\mathbin{+}\mathrm{10}} na notação matemática ha
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{prop\char95 optimize\char95 respects\char95 semantics}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 optimize\char95 respects\char95 semantics}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 optimize\char95 respects\char95 semantics}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{eval\char95 exp}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{optmize\char95 eval}\;\Varid{a}\;\Varid{exp}{}\<[E]%
 \ColumnHook
@@ -693,7 +693,7 @@ designa \ensuremath{\Varid{x}\mathbin{+}\mathrm{10}} na notação matemática ha
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{prop\char95 const\char95 rule}\mathbin{::}(\Conid{Real}\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 const\char95 rule}\mathbin{::}(\R\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 const\char95 rule}\;\Varid{a}\mathrel{=}\Varid{sd}\;(\Conid{N}\;\Varid{a})\equiv \Conid{N}\;\mathrm{0}{}\<[E]%
 \\[\blanklineskip]%
@@ -701,25 +701,25 @@ designa \ensuremath{\Varid{x}\mathbin{+}\mathrm{10}} na notação matemática ha
 \\
 \>[B]{}\Varid{prop\char95 var\char95 rule}\mathrel{=}\Varid{sd}\;\Conid{X}\equiv \Conid{N}\;\mathrm{1}{}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 sum\char95 rule}\mathbin{::}(\Conid{Real}\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 sum\char95 rule}\mathbin{::}(\R\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 sum\char95 rule}\;\Varid{exp1}\;\Varid{exp2}\mathrel{=}\Varid{sd}\;(\Conid{Bin}\;\Conid{Sum}\;\Varid{exp1}\;\Varid{exp2})\equiv \Varid{sum\char95 rule}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{sum\char95 rule}\mathrel{=}\Conid{Bin}\;\Conid{Sum}\;(\Varid{sd}\;\Varid{exp1})\;(\Varid{sd}\;\Varid{exp2}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 product\char95 rule}\mathbin{::}(\Conid{Real}\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 product\char95 rule}\mathbin{::}(\R\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 product\char95 rule}\;\Varid{exp1}\;\Varid{exp2}\mathrel{=}\Varid{sd}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{exp1}\;\Varid{exp2})\equiv \Varid{prod\char95 rule}\;\mathbf{where}{}\<[E]%
 \\
 \>[B]{}\hsindent{3}{}\<[3]%
 \>[3]{}\Varid{prod\char95 rule}\mathrel{=}\Conid{Bin}\;\Conid{Sum}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{exp1}\;(\Varid{sd}\;\Varid{exp2}))\;(\Conid{Bin}\;\Conid{Product}\;(\Varid{sd}\;\Varid{exp1})\;\Varid{exp2}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 e\char95 rule}\mathbin{::}(\Conid{Real}\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 e\char95 rule}\mathbin{::}(\R\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 e\char95 rule}\;\Varid{exp}\mathrel{=}\Varid{sd}\;(\Conid{Un}\;\Conid{E}\;\Varid{exp})\equiv \Conid{Bin}\;\Conid{Product}\;(\Conid{Un}\;\Conid{E}\;\Varid{exp})\;(\Varid{sd}\;\Varid{exp}){}\<[E]%
 \\[\blanklineskip]%
-\>[B]{}\Varid{prop\char95 negate\char95 rule}\mathbin{::}(\Conid{Real}\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 negate\char95 rule}\mathbin{::}(\R\;\Varid{a},\Conid{Floating}\;\Varid{a})\Rightarrow \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 negate\char95 rule}\;\Varid{exp}\mathrel{=}\Varid{sd}\;(\Conid{Un}\;\Conid{Negate}\;\Varid{exp})\equiv \Conid{Un}\;\Conid{Negate}\;(\Varid{sd}\;\Varid{exp}){}\<[E]%
 \ColumnHook
@@ -749,7 +749,7 @@ da derivada em vez de manipular a expressão original.
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
-\>[B]{}\Varid{prop\char95 congruent}\mathbin{::}(\Conid{Floating}\;\Varid{a},\Conid{Real}\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}\Varid{prop\char95 congruent}\mathbin{::}(\Conid{Floating}\;\Varid{a},\R\;\Varid{a})\Rightarrow \Varid{a}\to \Conid{ExpAr}\;\Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}\Varid{prop\char95 congruent}\;\Varid{a}\;\Varid{exp}\mathrel{=}\Varid{ad}\;\Varid{a}\;\Varid{exp}\mathbin{\stackrel{\mathrm{?}}{=}}\Varid{eval\char95 exp}\;\Varid{a}\;(\Varid{sd}\;\Varid{exp}){}\<[E]%
 \ColumnHook
@@ -1470,7 +1470,7 @@ Código para geração de testes:
 \\[\blanklineskip]%
 \>[B]{}\mathbf{infixr}\;\mathrm{5}\mathbin{\stackrel{\mathrm{?}}{=}}{}\<[E]%
 \\
-\>[B]{}(\mathbin{\stackrel{\mathrm{?}}{=}})\mathbin{::}\Conid{Real}\;\Varid{a}\Rightarrow \Varid{a}\to \Varid{a}\to \Conid{Bool}{}\<[E]%
+\>[B]{}(\mathbin{\stackrel{\mathrm{?}}{=}})\mathbin{::}\R\;\Varid{a}\Rightarrow \Varid{a}\to \Varid{a}\to \Conid{Bool}{}\<[E]%
 \\
 \>[B]{}(\mathbin{\stackrel{\mathrm{?}}{=}})\;\Varid{x}\;\Varid{y}\mathrel{=}( to_\Q \;\Varid{x})\equiv ( to_\Q \;\Varid{y}){}\<[E]%
 \ColumnHook
@@ -1933,6 +1933,25 @@ no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
 \subsection*{Problema 4}
 
 A resolução deste problema baseou-se em diagramas.
+De seguida apresenta-se o diagrama do avg\_aux como um split entre as funções avg e length.
+
+\begin{eqnarray*}
+\centering
+\xymatrix@C=2cm{
+&     {\ensuremath{\Conid{A}}^*}
+           \ar[ld]_-{\ensuremath{\Varid{avg}}}
+           \ar[d]_{\footnotesize{\ensuremath{\conj{\Varid{avg}}{\length }}}}
+           \ar[rd]^-{\ensuremath{\length }}
+\\
+      \ensuremath{\R}
+&
+      \ensuremath{\R\times}{\ensuremath{\N}^+}
+           \ar[l]^-{\ensuremath{\p1}}
+           \ar[r]^-{\ensuremath{\p2}}
+&
+      {\ensuremath{\N}^+}
+}
+\end{eqnarray*}
 
 Solução para listas não vazias:
 \begin{hscode}\SaveRestoreHook
@@ -1942,38 +1961,30 @@ Solução para listas não vazias:
 \ColumnHook
 \end{hscode}\resethooks
 
-\begin{eqnarray*}
-\xymatrix@C=2cm{
-&     {\ensuremath{\Conid{A}}^*}
-           \ar[ld]^-{\ensuremath{\Varid{avg}}}
-           \ar[d]_{\footnotesize{\ensuremath{\conj{\Varid{avg}}{\length }}}}
-           \ar[rd]_-{\ensuremath{\length }}
-\\
-      \ensuremath{\Conid{B}}
-&
-      \ensuremath{\Conid{B}\times}{\ensuremath{\N}^+}
-           \ar[l]^-{\ensuremath{\p1}}
-           \ar[r]^-{\ensuremath{\p2}}
-&
-      {\ensuremath{\N}^+}
-}
-\end{eqnarray*}
+A seguir apresentamos o diagrama do catamorfismo avg\_aux,
+baseado no diagrama apresentado anteriormente.
 
 \begin{eqnarray*}
 \xymatrix@C=2cm{
     {\ensuremath{\Conid{A}}^*}
-           \ar[d]_-{\ensuremath{\conj{\Varid{avg}}{\length }\mathrel{=}\cata{\alt{\Varid{b}}{\Varid{q}}}}}
+           \ar[d]_-{\ensuremath{\cata{\alt{\Varid{b}}{\Varid{q}}}\mathrel{=}\conj{\Varid{avg}}{\length }}}
 &
     \ensuremath{\Conid{A}\mathbin{+}\Conid{A}\times}{\ensuremath{\Conid{A}}^*}
             \ar[l]_{\ensuremath{\mathbf{in}}}
-            \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times\cata{\alt{\Varid{b}}{\Varid{q}}}}}
+            \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times\conj{\Varid{avg}}{\length }}}
 \\
-     \ensuremath{\Conid{B}\times}{\ensuremath{\N}^+}
+     \ensuremath{\R\times}{\ensuremath{\N}^+}
 &
-     \ensuremath{\Conid{A}\mathbin{+}\Conid{A}\times\Conid{B}\times}{\ensuremath{\N}^+}
+     \ensuremath{\Conid{A}\mathbin{+}\Conid{A}\times\R\times}{\ensuremath{\N}^+}
            \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}}}
 }
 \end{eqnarray*}
+
+Porque se trata de listas não vazias foi necessário definir o catamorfismo para este tipo
+e, consequentemente o seu out, que se apresentam de seguida.
+Depois do catamorfismo definido, podemos passar à definição do seu gene com
+base no diagrama anterior e na definição da função de cálculo da média de uma lista
+fornecida no enunciado.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1998,6 +2009,40 @@ Solução para listas não vazias:
 \end{hscode}\resethooks
 Solução para árvores de tipo \LTree:
 
+A adptação para árvores do tipo LTree é simples e imediata como se
+pode perceber nos seguintes diagramas.
+
+\begin{eqnarray*}
+\xymatrix@C=2cm{
+&     {\ensuremath{\mathsf{LTree}\;\Conid{A}}}
+           \ar[ld]_-{\ensuremath{\Varid{avg}}}
+           \ar[d]_{\footnotesize{\ensuremath{\conj{\Varid{avg}}{\length }}}}
+           \ar[rd]^-{\ensuremath{\length }}
+\\
+      \ensuremath{\R}
+&
+      \ensuremath{\R\times}{\ensuremath{\N}^+}
+           \ar[l]^-{\ensuremath{\p1}}
+           \ar[r]^-{\ensuremath{\p2}}
+&
+      {\ensuremath{\N}^+}
+}
+
+\begin{eqnarray*}
+\xymatrix@C=2cm{
+    {\ensuremath{\mathsf{LTree}\;\Conid{A}}}
+           \ar[d]_-{\ensuremath{\cata{\alt{\Varid{b}}{\Varid{q}}}\mathrel{=}\conj{\Varid{avg}}{\length }}}
+&
+    \ensuremath{\Conid{A}\mathbin{+}}{(\ensuremath{\mathsf{LTree}\;\Conid{A}})^2}
+            \ar[l]_{\ensuremath{\mathbf{in}}}
+            \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}}{\ensuremath{\cata{\alt{\Varid{b}}{\Varid{q}}}}^2}}
+\\
+     \ensuremath{\R\times}{\ensuremath{\N}^+}
+&
+     \ensuremath{\Conid{A}\mathbin{+}}{(\ensuremath{\R\times} {\ensuremath{\N}^+})^2}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}}}
+}
+\end{eqnarray*}
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%

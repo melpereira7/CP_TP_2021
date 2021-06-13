@@ -74,6 +74,7 @@
 %format (cataNat (g)) = "\cata{" g "}"
 %format Nat0 = "\N_0"
 %format Nat = "\N"
+%format Real = "\R"
 %format Rational = "\Q "
 %format toRational = " to_\Q "
 %format fromRational = " from_\Q "
@@ -1273,22 +1274,18 @@ hyloAlgForm h g = cataLTree h . anaLTree g
 \subsection*{Problema 4}
 
 A resolução deste problema baseou-se em diagramas.
-
-Solução para listas não vazias:
-\begin{code}
-avg = p1.avg_aux
-\end{code}
+De seguida apresenta-se o diagrama do avg\_aux como um split entre as funções avg e length.
 
 \begin{eqnarray*}
 \xymatrix@@C=2cm{
 &     {|A|^*}
-           \ar[ld]^-{|avg|}
+           \ar[ld]_-{|avg|}
            \ar[d]_{\footnotesize{|split avg length|}}
-           \ar[rd]_-{|length|}
+           \ar[rd]^-{|length|}
 \\
-      |B|
+      |Real|
 &
-      |B ><|{|Nat|^+}
+      |Real ><|{|Nat|^+}
            \ar[l]^-{|p1|}
            \ar[r]^-{|p2|}
 &
@@ -1296,21 +1293,35 @@ avg = p1.avg_aux
 }
 \end{eqnarray*}
 
+Solução para listas não vazias:
+\begin{code}
+avg = p1.avg_aux
+\end{code}
+
+A seguir apresentamos o diagrama do catamorfismo avg\_aux,
+baseado no diagrama apresentado anteriormente.
+
 \begin{eqnarray*}
 \xymatrix@@C=2cm{
     {|A|^*}
-           \ar[d]_-{|(split avg length) = (cata (either b q))|}
+           \ar[d]_-{|(cata (either b q)) = (split avg length)|}
 &
     |A + A ><|{|A|^*}
             \ar[l]_{|in|}
-            \ar[d]^{|id + id >< (cata (either b q))|}
+            \ar[d]^{|id + id >< (split avg length)|}
 \\
-     |B ><|{|Nat|^+}
+     |Real ><|{|Nat|^+}
 &
-     |A + A >< B ><|{|Nat|^+}
+     |A + A >< Real ><|{|Nat|^+}
            \ar[l]^-{|g = either g1 g2|}
 }
 \end{eqnarray*}
+
+Porque se trata de listas não vazias foi necessário definir o catamorfismo para este tipo
+e, consequentemente o seu out, que se apresentam de seguida.
+Depois do catamorfismo definido, podemos passar à definição do seu gene com
+base no diagrama anterior e na definição da função de cálculo da média de uma lista
+fornecida no enunciado.
 
 \begin{code}
 outNonEmptyList [a]   = i1 (a)
@@ -1324,6 +1335,40 @@ avg_aux = cataNonEmptyList (either g1 g2) where
 \end{code}
 Solução para árvores de tipo \LTree:
 
+A adptação para árvores do tipo LTree é simples e imediata como se
+pode perceber nos seguintes diagramas.
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+&     {|LTree A|}
+           \ar[ld]_-{|avg|}
+           \ar[d]_{\footnotesize{|split avg length|}}
+           \ar[rd]^-{|length|}
+\\
+      |Real|
+&
+      |Real ><|{|Nat|^+}
+           \ar[l]^-{|p1|}
+           \ar[r]^-{|p2|}
+&
+      {|Nat|^+}
+}
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+    {|LTree A|}
+           \ar[d]_-{|(cata (either b q)) = (split avg length)|}
+&
+    |A + |{(|LTree A|)^2}
+            \ar[l]_{|in|}
+            \ar[d]^{|id +|{|(cata (either b q))|^2}}
+\\
+     |Real ><|{|Nat|^+}
+&
+     |A +|{(|Real ><| {|Nat|^+})^2}
+           \ar[l]^-{|g = either g1 g2|}
+}
+\end{eqnarray*}
 
 \begin{code}
 avgLTree = p1.cataLTree gene where

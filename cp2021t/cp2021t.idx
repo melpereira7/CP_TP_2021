@@ -27,6 +27,20 @@
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{3}
 \indexentry{Função!\emph  {uncurry}|hyperpage}{3}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{3}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{4}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{5}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{5}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{5}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{5}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{5}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{5}
 \indexentry{Programação!dinâmica|hyperpage}{5}
 \indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{5}
 \indexentry{Functor|hyperpage}{5}
@@ -90,6 +104,7 @@
 \indexentry{Functor|hyperpage}{11}
 \indexentry{Haskell!Gloss|hyperpage}{11}
 \indexentry{Função!\emph  {map}|hyperpage}{12}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{12}
 \indexentry{Racionais|hyperpage}{12}
 \indexentry{Racionais|hyperpage}{12}
 \indexentry{Função!$\pi _2$|hyperpage}{13}
@@ -118,23 +133,44 @@
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{15}
 \indexentry{Racionais|hyperpage}{15}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
-\indexentry{Função!$\pi _1$|hyperpage}{16}
 \indexentry{Função!\emph  {length}|hyperpage}{16}
 \indexentry{Função!\emph  {length}|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
 \indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
 \indexentry{Função!$\pi _1$|hyperpage}{16}
 \indexentry{Função!$\pi _2$|hyperpage}{16}
 \indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
+\indexentry{Função!$\pi _1$|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{16}
 \indexentry{Função!\emph  {length}|hyperpage}{16}
-\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
-\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{16}
-\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
-\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{16}
+\indexentry{Função!\emph  {length}|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
 \indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
 \indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
 \indexentry{Cálculo de Programas!Material Pedagógico!LTree.hs|hyperpage}{16}
+\indexentry{Função!\emph  {length}|hyperpage}{16}
+\indexentry{Função!\emph  {length}|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
+\indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
 \indexentry{Função!$\pi _1$|hyperpage}{16}
+\indexentry{Função!$\pi _2$|hyperpage}{16}
+\indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
 \indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
-\indexentry{F\#|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{16}
+\indexentry{Função!\emph  {length}|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {cata}|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
+\indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
+\indexentry{Números reais ($I\mskip -\thinmuskip \mskip -\thinmuskip R$)|hyperpage}{16}
+\indexentry{Números naturais ($I\mskip -\thinmuskip \mskip -\thinmuskip N$)|hyperpage}{16}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{16}
+\indexentry{Função!$\pi _1$|hyperpage}{17}
+\indexentry{Combinador ``pointfree''!\emph  {either}|hyperpage}{17}
+\indexentry{F\#|hyperpage}{17}
