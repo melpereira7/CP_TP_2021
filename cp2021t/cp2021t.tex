@@ -1874,11 +1874,30 @@ no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
 
 \subsection*{Problema 3}
 
+Para perceber qual o gene deste catamorfismo decidimos desenhar o seu diagrama:
+
+\begin{eqnarray*}
+\xymatrix@C=2cm{
+  \ensuremath{\Conid{NPoint}}
+           \ar[d]_-{\ensuremath{\Varid{calcLine}}}
+            \ar[r]_{\ensuremath{\Varid{out}}}
+&
+    \ensuremath{\mathrm{1}\mathbin{+}\R\times\Conid{NPoint}}
+            \ar[d]^{\ensuremath{\Varid{id}\mathbin{+}\Varid{id}\times\Varid{calcLine}}}
+\\
+     \ensuremath{\Conid{OverTime}\;\Conid{NPoint}}
+&
+     \ensuremath{\mathrm{1}\mathbin{+}\R\times\Conid{OverTime}\;\Conid{NPoint}}
+           \ar[l]^-{\ensuremath{\Varid{g}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}}}
+}
+\end{eqnarray*}
+
+A partir do diagrama e também da definição de calcLine fornecida foi relativamente
+imediato encontrar a definição do gene que é a seguinte:
+
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{4}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{7}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{12}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{17}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
@@ -1903,7 +1922,52 @@ no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
 \>[5]{}(\Varid{x}\mathbin{:}\Varid{xs})\to \lambda \Varid{z}\to \Varid{concat}\mathbin{\$}(\Varid{sequenceA}\;[\mskip1.5mu \Varid{singl}\comp \Varid{linear1d}\;\Varid{d}\;\Varid{x},\Varid{f}\;\Varid{xs}\mskip1.5mu])\;\Varid{z}{}\<[E]%
-\\[\blanklineskip]%
+\ColumnHook
+\end{hscode}\resethooks
+
+A definição do hilomorfismo já foi mais complicada de encontrar.
+Procedemos, tal como no anterior, ao desenho de um diagrama, que
+foi sendo preenchido também à medida que íamos percebendo aquilo
+que o anamorfismo e o catamorfismo deveriam fazer.
+
+Começamos por definir que o anamorfismo (a parte de divisão do hilomorfismo)
+faria a divisão da lista de NPoint em duas listas do mesmo tipo, tal
+como se vê que é feito na definição dada no enunciado, então, foi isso que se
+fez para a definição do anamorfismo. Quanto aos outros casos, o resultado seria
+exatamente aquele que se pretende na definição de deCasteljau fornecida.
+
+O catamorfismo terá, agora, apenas de fazer o cálculo para OverTime NPoint no caso
+de receber o par de OverTime NPoint vindo do anamorfismo. Para isso, é chamado o catamorfismo
+definido acima, o calcLine, tal como na definição original fornecida.
+
+\begin{eqnarray*}
+\xymatrix@C=2cm{
+    {\ensuremath{\Conid{NPoint}}^*}
+           \ar[d]_-{\ensuremath{\ana{\Varid{coalg}}}}
+            \ar[r]^-{\ensuremath{\Varid{coalg}}}
+&
+    \ensuremath{\Conid{NPoint}\mathbin{+}} {\ensuremath{\Conid{NPoint}}^*^2}
+            \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}} {\ensuremath{\ana{\Varid{coalg}}}^2}}
+\\
+     {\ensuremath{\Conid{NPoint}}^*}
+            \ar[d]_-{\ensuremath{\cata{\Varid{alg}}}}
+&
+     \ensuremath{\Conid{NPoint}\mathbin{+}} {\ensuremath{\Conid{NPoint}}^*^2}
+           \ar[l]_-{\ensuremath{\mathbf{in}}}
+           \ar[d]^-{\ensuremath{\Varid{id}\mathbin{+}} {\ensuremath{\cata{\Varid{alg}}}^2}}
+\\
+     \ensuremath{\Conid{OverTime}\;\Conid{NPoint}}
+&
+     \ensuremath{\mathrm{1}\mathbin{+}\R\times\Conid{OverTime}\;\Conid{NPoint}}
+           \ar[l]^-{\ensuremath{\Varid{alg}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}}}
+}
+\end{eqnarray*}
+
+\begin{hscode}\SaveRestoreHook
+\column{B}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{4}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{7}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{deCasteljau}\mathbin{::}[\mskip1.5mu \Conid{NPoint}\mskip1.5mu]\to \Conid{OverTime}\;\Conid{NPoint}{}\<[E]%
 \\
 \>[B]{}\Varid{deCasteljau}\mathrel{=}\Varid{hyloAlgForm}\;\Varid{alg}\;\Varid{coalg}\;\mathbf{where}{}\<[E]%
@@ -1936,11 +2000,10 @@ A resolução deste problema baseou-se em diagramas.
 De seguida apresenta-se o diagrama do avg\_aux como um split entre as funções avg e length.
 
 \begin{eqnarray*}
-\centering
 \xymatrix@C=2cm{
 &     {\ensuremath{\Conid{A}}^*}
            \ar[ld]_-{\ensuremath{\Varid{avg}}}
-           \ar[d]_{\footnotesize{\ensuremath{\conj{\Varid{avg}}{\length }}}}
+           \ar[d]_{\ensuremath{\conj{\Varid{avg}}{\length }}}
            \ar[rd]^-{\ensuremath{\length }}
 \\
       \ensuremath{\R}
@@ -2014,9 +2077,9 @@ pode perceber nos seguintes diagramas.
 
 \begin{eqnarray*}
 \xymatrix@C=2cm{
-&     {\ensuremath{\mathsf{LTree}\;\Conid{A}}}
+&     \ensuremath{\mathsf{LTree}\;\Conid{A}}
            \ar[ld]_-{\ensuremath{\Varid{avg}}}
-           \ar[d]_{\footnotesize{\ensuremath{\conj{\Varid{avg}}{\length }}}}
+           \ar[d]_{\ensuremath{\conj{\Varid{avg}}{\length }}}
            \ar[rd]^-{\ensuremath{\length }}
 \\
       \ensuremath{\R}
@@ -2030,7 +2093,7 @@ pode perceber nos seguintes diagramas.
 
 \begin{eqnarray*}
 \xymatrix@C=2cm{
-    {\ensuremath{\mathsf{LTree}\;\Conid{A}}}
+    \ensuremath{\mathsf{LTree}\;\Conid{A}}
            \ar[d]_-{\ensuremath{\cata{\alt{\Varid{b}}{\Varid{q}}}\mathrel{=}\conj{\Varid{avg}}{\length }}}
 &
     \ensuremath{\Conid{A}\mathbin{+}}{(\ensuremath{\mathsf{LTree}\;\Conid{A}})^2}

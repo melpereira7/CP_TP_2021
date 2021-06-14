@@ -54,6 +54,7 @@
 %format (anaA (f) (g)) = "\ana{" f "~" g "}_A"
 %format (cataB (f) (g)) = "\cata{" f "~" g "}_B"
 %format (cata (f)) = "\cata{" f "}"
+%format (ana (f)) = "\ana{" f "}"
 %format (anaB (f) (g)) = "\ana{" f "~" g "}_B"
 %format Either a b = a "+" b 
 %format fmap = "\mathsf{fmap}"
@@ -1248,6 +1249,27 @@ no enunciado para encontrar a definição de loop, inic, e prj, como pedido.
 
 \subsection*{Problema 3}
 
+Para perceber qual o gene deste catamorfismo decidimos desenhar o seu diagrama:
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+  |NPoint|
+           \ar[d]_-{|calcLine|}
+            \ar[r]_{|out|}
+&
+    |1 + Real >< NPoint|
+            \ar[d]^{|id + id >< calcLine|}
+\\
+     |OverTime NPoint|
+&
+     |1 + Real >< OverTime NPoint|
+           \ar[l]^-{|g = either g1 g2|}
+}
+\end{eqnarray*}
+
+A partir do diagrama e também da definição de calcLine fornecida foi relativamente
+imediato encontrar a definição do gene que é a seguinte:
+
 \begin{code}
 calcLine :: NPoint -> (NPoint -> OverTime NPoint)
 calcLine = cataList (either h1 h2) where
@@ -1259,6 +1281,47 @@ g (d,f) l = case l of
     []     -> nil
     (x:xs) -> \z -> concat $ (sequenceA [singl . linear1d d x, f xs]) z
 
+\end{code}
+
+A definição do hilomorfismo já foi mais complicada de encontrar.
+Procedemos, tal como no anterior, ao desenho de um diagrama, que
+foi sendo preenchido também à medida que íamos percebendo aquilo
+que o anamorfismo e o catamorfismo deveriam fazer.
+
+Começamos por definir que o anamorfismo (a parte de divisão do hilomorfismo)
+faria a divisão da lista de NPoint em duas listas do mesmo tipo, tal
+como se vê que é feito na definição dada no enunciado, então, foi isso que se
+fez para a definição do anamorfismo. Quanto aos outros casos, o resultado seria
+exatamente aquele que se pretende na definição de deCasteljau fornecida.
+
+O catamorfismo terá, agora, apenas de fazer o cálculo para OverTime NPoint no caso
+de receber o par de OverTime NPoint vindo do anamorfismo. Para isso, é chamado o catamorfismo
+definido acima, o calcLine, tal como na definição original fornecida.
+
+\begin{eqnarray*}
+\xymatrix@@C=2cm{
+    {|NPoint|^*}
+           \ar[d]_-{|ana coalg|}
+            \ar[r]^-{|coalg|}
+&
+    |NPoint +| {|NPoint|^*^2}
+            \ar[d]^-{|id +| {|ana coalg|^2}}
+\\
+     {|NPoint|^*}
+            \ar[d]_-{|cata alg|}
+&
+     |NPoint +| {|NPoint|^*^2}
+           \ar[l]_-{|in|}
+           \ar[d]^-{|id +| {|cata alg|^2}}
+\\
+     |OverTime NPoint|
+&
+     |1 + Real >< OverTime NPoint|
+           \ar[l]^-{|alg = either g1 g2|}
+}
+\end{eqnarray*}
+
+\begin{code}
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
    coalg [] = i1 nil
@@ -1280,7 +1343,7 @@ De seguida apresenta-se o diagrama do avg\_aux como um split entre as funções 
 \xymatrix@@C=2cm{
 &     {|A|^*}
            \ar[ld]_-{|avg|}
-           \ar[d]_{\footnotesize{|split avg length|}}
+           \ar[d]_{|split avg length|}
            \ar[rd]^-{|length|}
 \\
       |Real|
@@ -1340,9 +1403,9 @@ pode perceber nos seguintes diagramas.
 
 \begin{eqnarray*}
 \xymatrix@@C=2cm{
-&     {|LTree A|}
+&     |LTree A|
            \ar[ld]_-{|avg|}
-           \ar[d]_{\footnotesize{|split avg length|}}
+           \ar[d]_{|split avg length|}
            \ar[rd]^-{|length|}
 \\
       |Real|
@@ -1356,7 +1419,7 @@ pode perceber nos seguintes diagramas.
 
 \begin{eqnarray*}
 \xymatrix@@C=2cm{
-    {|LTree A|}
+    |LTree A|
            \ar[d]_-{|(cata (either b q)) = (split avg length)|}
 &
     |A + |{(|LTree A|)^2}
