@@ -130,15 +130,15 @@
 
 \begin{center}\large
 \begin{tabular}{ll}
-\textbf{Grupo} nr. & 999 (preencher)
+\textbf{Grupo} nr. & 3
 \\\hline
-a11111 & Nome1 (preencher)	
+a81032 & António Maria de Araújo Serra Lobo Guerra 
 \\
-a22222 & Nome2 (preencher)	
+a81667 & Daniel José Coutinho Gonçalves de Faria 
+\\ 	
+a82098 & Melânia Rafaela Sousa Pereira	
 \\
-a33333 & Nome3 (preencher)	
-\\
-a44444 & Nome4 (preencher, se aplicável, ou apagar)	
+a81195 & Tiago Manuel Queirós Barata	
 \end{tabular}
 \end{center}
 
@@ -1060,7 +1060,7 @@ Sabe-se que in e out são isomorfismos, logo, out . in = id.
   \end{array}
   \right
 %
-\just\equiv{ def. bin (op,(a,b)) = Bin op a b ; uncurry aplicado ao ponto ; natural-id ; igualdade extensional ; def-comp ;  }
+\just\equiv{ bin (op,(a,b)) = Bin op a b ; uncurry aplicado ao ponto ; natural-id ; igualdade extensional ; def-comp ;  }
 %
   \left\{
    \begin{array}{llll}
@@ -1107,7 +1107,7 @@ Assim, podemos inferir o seguinte:
 recExpAr f = baseExpAr id id id f f id f
 \end{code}
 
-Passemos ao desenho do diagrama do catamorfismo eval\_exp:
+Através da adaptação do diagrama anterior, temos o diagrama do catamorfismo eval\_exp:
 
 \begin{eqnarray*}
 \xymatrix@@C=2cm{
@@ -1115,7 +1115,7 @@ Passemos ao desenho do diagrama do catamorfismo eval\_exp:
            \ar[d]_-{|eval_exp = cata g_eval_exp|}
 &
     |1 + A + BinOp ><| {|ExpAr|^2} |+ UnOp >< ExpAr|
-           \ar[d]^{|id + id + id ><| {|(cata g_eval_exp)|^2} |+ id >< (cata g_eval_exp) |}
+           \ar[d]^{|id + id + id ><| {|(cata g_eval_exp)|^2} |+ id >< (cata g_eval_exp)|}
            \ar[l]_-{|inExpAr|}
 \\
      |F|
@@ -1137,13 +1137,13 @@ g_eval_exp a = (either g1 (either g2 (either g3 g4)))
                         | op == E = expd x
 \end{code}
 
-Para encontrar o hilomorfismo pedido, comçamos por tentar entender qual seria
+Para encontrar o hilomorfismo pedido, começamos por tentar entender qual seria
 a parte de divisão e qual a parte de conquista. Depressa percebermos que
 na parte de divisão é onde devem ser tratados os casos de elementos
-neutros, e a parte da conquista deve ser apenas sobre o cálculo do valor da expressão.
+absorventes, e a parte da conquista deve ser apenas sobre o cálculo do valor da expressão.
 
 Considerando as operações possíveis de realizar neste tipo ExpAr, o único elemento
-neutro existente é o 0 na multplicação. Assim, sempre que pelo menos uma das parcelas
+absorvente existente é o 0 na multplicação. Assim, sempre que pelo menos uma das parcelas
 do produto é zero, em vez dessa expressão produto passamos a ter o número 0, pois o
 resultado da multiplicação por 0 é sempre 0.
 
@@ -1171,12 +1171,14 @@ Chegamos assim ao seguinte resultado:
 
 \begin{code}
 sd_gen :: Floating a =>
-    Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a)))) -> (ExpAr a, ExpAr a)
+    Either () (Either a (Either (BinOp, ((ExpAr a, ExpAr a), (ExpAr a, ExpAr a))) (UnOp, (ExpAr a, ExpAr a))))
+    -> (ExpAr a, ExpAr a)
 sd_gen = (either g1 (either g2 (either g3 g4)))
   where g1 () = (X, N 1)
         g2 a = (N a, N 0)
         g3 (op,((x1,y1),(x2,y2))) | op==Sum     = ((Bin op x1 x2),(Bin op y1 y2))
-                                  | op==Product = ((Bin op x1 x2), (Bin Sum (Bin Product x1 y2) (Bin Product y1 x2)))
+                                  | op==Product = ((Bin op x1 x2), 
+                                      (Bin Sum (Bin Product x1 y2) (Bin Product y1 x2)))
         g4 (op,(x1,x2))           | op==E       = ((Un op x1), (Bin Product (Un E x1) (x2)))
                                   | op==Negate  = ((Un op x1), (Un op x2))
 \end{code}
@@ -1195,7 +1197,8 @@ ad_gen v = (either g1 (either g2 (either g3 g4)))
   where g1 () = (X, 1)
         g2 a = (N a, 0)
         g3 (op,((x1,y1),(x2,y2))) | op==Sum     = ((Bin op x1 x2), (y1+y2))
-                                  | op==Product = ((Bin op x1 x2), (eval_exp v (Bin Sum (Bin Product x1 (N y2)) (Bin Product (N y1) x2))))
+                                  | op==Product = ((Bin op x1 x2),(eval_exp v (Bin Sum 
+                                        (Bin Product x1 (N y2)) (Bin Product (N y1) x2))))
         g4 (op,(x1,x2))           | op==E       = ((Un op x1), (eval_exp v (Un E x1))*x2)
                                   | op==Negate  = ((Un op x1), (-x2))
 \end{code}
@@ -1225,8 +1228,8 @@ seja a função pretendida.
 Apresentar de seguida a justificação da solução encontrada.
 
 
-Apartir da fórmula dada no enunciado, foi possível encontrar a seguinte fórmula recursiva para
-o cálculo do número de Catalan:
+Apartir da fórmula dada no enunciado, foi possível encontrar a seguinte fórmula 
+recursiva para o cálculo do número de Catalan:
 \begin{eqnarray}
 	C_{n+1} = \frac{4n + 2}{n + 2} * C_n
 \end{eqnarray}
@@ -1296,8 +1299,8 @@ fez para a definição do anamorfismo. Quanto aos outros casos, o resultado seri
 exatamente aquele que se pretende na definição de deCasteljau fornecida.
 
 O catamorfismo terá, agora, apenas de fazer o cálculo para OverTime NPoint no caso
-de receber o par de OverTime NPoint vindo do anamorfismo. Para isso, é chamado o catamorfismo
-definido acima, o calcLine, tal como na definição original fornecida.
+de receber o par de OverTime NPoint vindo do anamorfismo. Para isso, é chamado o 
+catamorfismo definido acima, o calcLine, tal como na definição original fornecida.
 
 \begin{eqnarray*}
 \xymatrix@@C=2cm{
@@ -1325,10 +1328,10 @@ definido acima, o calcLine, tal como na definição original fornecida.
 \begin{code}
 deCasteljau :: [NPoint] -> OverTime NPoint
 deCasteljau = hyloAlgForm alg coalg where
-   coalg [] = i1 nil
-   coalg [p] = i1 (const p)
-   coalg l = i2 ((init l),(tail l))
-   alg = either g1 g2 where
+    coalg [] = i1 nil
+    coalg [p] = i1 (const p)
+    coalg l = i2 ((init l),(tail l))
+    alg = either g1 g2 where
       g1 l = l 
       g2 (l1,l2) = \pt -> (calcLine (l1 pt) (l2 pt)) pt
       

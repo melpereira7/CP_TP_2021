@@ -305,15 +305,15 @@
 
 \begin{center}\large
 \begin{tabular}{ll}
-\textbf{Grupo} nr. & 999 (preencher)
+\textbf{Grupo} nr. & 3
 \\\hline
-a11111 & Nome1 (preencher)	
+a81032 & António Maria de Araújo Serra Lobo Guerra 
 \\
-a22222 & Nome2 (preencher)	
+a81667 & Daniel José Coutinho Gonçalves de Faria 
+\\ 	
+a82098 & Melânia Rafaela Sousa Pereira	
 \\
-a33333 & Nome3 (preencher)	
-\\
-a44444 & Nome4 (preencher, se aplicável, ou apagar)	
+a81195 & Tiago Manuel Queirós Barata	
 \end{tabular}
 \end{center}
 
@@ -1590,7 +1590,7 @@ Sabe-se que in e out são isomorfismos, logo, out . in = id.
   \end{array}
   \right
 %
-\just\equiv{ def. bin (op,(a,b)) = Bin op a b ; uncurry aplicado ao ponto ; natural-id ; igualdade extensional ; def-comp ;  }
+\just\equiv{ bin (op,(a,b)) = Bin op a b ; uncurry aplicado ao ponto ; natural-id ; igualdade extensional ; def-comp ;  }
 %
   \left\{
    \begin{array}{llll}
@@ -1646,7 +1646,7 @@ Assim, podemos inferir o seguinte:
 \ColumnHook
 \end{hscode}\resethooks
 
-Passemos ao desenho do diagrama do catamorfismo eval\_exp:
+Através da adaptação do diagrama anterior, temos o diagrama do catamorfismo eval\_exp:
 
 \begin{eqnarray*}
 \xymatrix@C=2cm{
@@ -1694,13 +1694,13 @@ Daqui podemos inferir o seguinte:
 \ColumnHook
 \end{hscode}\resethooks
 
-Para encontrar o hilomorfismo pedido, comçamos por tentar entender qual seria
+Para encontrar o hilomorfismo pedido, começamos por tentar entender qual seria
 a parte de divisão e qual a parte de conquista. Depressa percebermos que
 na parte de divisão é onde devem ser tratados os casos de elementos
-neutros, e a parte da conquista deve ser apenas sobre o cálculo do valor da expressão.
+absorventes, e a parte da conquista deve ser apenas sobre o cálculo do valor da expressão.
 
 Considerando as operações possíveis de realizar neste tipo ExpAr, o único elemento
-neutro existente é o 0 na multplicação. Assim, sempre que pelo menos uma das parcelas
+absorvente existente é o 0 na multplicação. Assim, sempre que pelo menos uma das parcelas
 do produto é zero, em vez dessa expressão produto passamos a ter o número 0, pois o
 resultado da multiplicação por 0 é sempre 0.
 
@@ -1741,12 +1741,16 @@ Chegamos assim ao seguinte resultado:
 \column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{9}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{35}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{39}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{49}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{sd\char95 gen}\mathbin{::}\Conid{Floating}\;\Varid{a}\Rightarrow {}\<[E]%
 \\
 \>[B]{}\hsindent{5}{}\<[5]%
-\>[5]{}()+(\Varid{a}+((\Conid{BinOp},((\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}),(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))+(\Conid{UnOp},(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}))))\to (\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}){}\<[E]%
+\>[5]{}()+(\Varid{a}+((\Conid{BinOp},((\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}),(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))+(\Conid{UnOp},(\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a})))){}\<[E]%
+\\
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\to (\Conid{ExpAr}\;\Varid{a},\Conid{ExpAr}\;\Varid{a}){}\<[E]%
 \\
 \>[B]{}\Varid{sd\char95 gen}\mathrel{=}\alt{\Varid{g1}}{\alt{\Varid{g2}}{\alt{\Varid{g3}}{\Varid{g4}}}}{}\<[E]%
 \\
@@ -1761,7 +1765,10 @@ Chegamos assim ao seguinte resultado:
 \>[49]{}\mathrel{=}((\Conid{Bin}\;\Varid{op}\;\Varid{x1}\;\Varid{x2}),(\Conid{Bin}\;\Varid{op}\;\Varid{y1}\;\Varid{y2})){}\<[E]%
 \\
 \>[9]{}\hsindent{26}{}\<[35]%
-\>[35]{}\mid \Varid{op}\equiv \Conid{Product}\mathrel{=}((\Conid{Bin}\;\Varid{op}\;\Varid{x1}\;\Varid{x2}),(\Conid{Bin}\;\Conid{Sum}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{x1}\;\Varid{y2})\;(\Conid{Bin}\;\Conid{Product}\;\Varid{y1}\;\Varid{x2}))){}\<[E]%
+\>[35]{}\mid \Varid{op}\equiv \Conid{Product}\mathrel{=}((\Conid{Bin}\;\Varid{op}\;\Varid{x1}\;\Varid{x2}),{}\<[E]%
+\\
+\>[35]{}\hsindent{4}{}\<[39]%
+\>[39]{}(\Conid{Bin}\;\Conid{Sum}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{x1}\;\Varid{y2})\;(\Conid{Bin}\;\Conid{Product}\;\Varid{y1}\;\Varid{x2}))){}\<[E]%
 \\
 \>[3]{}\hsindent{6}{}\<[9]%
 \>[9]{}\Varid{g4}\;(\Varid{op},(\Varid{x1},\Varid{x2})){}\<[35]%
@@ -1787,6 +1794,7 @@ Obtemos então a seguinte definição de ad\_gen:
 \column{3}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{9}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{35}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{41}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{49}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{ad\char95 gen}\;\Varid{v}\mathrel{=}\alt{\Varid{g1}}{\alt{\Varid{g2}}{\alt{\Varid{g3}}{\Varid{g4}}}}{}\<[E]%
@@ -1802,7 +1810,10 @@ Obtemos então a seguinte definição de ad\_gen:
 \>[49]{}\mathrel{=}((\Conid{Bin}\;\Varid{op}\;\Varid{x1}\;\Varid{x2}),(\Varid{y1}\mathbin{+}\Varid{y2})){}\<[E]%
 \\
 \>[9]{}\hsindent{26}{}\<[35]%
-\>[35]{}\mid \Varid{op}\equiv \Conid{Product}\mathrel{=}((\Conid{Bin}\;\Varid{op}\;\Varid{x1}\;\Varid{x2}),(\Varid{eval\char95 exp}\;\Varid{v}\;(\Conid{Bin}\;\Conid{Sum}\;(\Conid{Bin}\;\Conid{Product}\;\Varid{x1}\;(\Conid{N}\;\Varid{y2}))\;(\Conid{Bin}\;\Conid{Product}\;(\Conid{N}\;\Varid{y1})\;\Varid{x2})))){}\<[E]%
+\>[35]{}\mid \Varid{op}\equiv \Conid{Product}\mathrel{=}((\Conid{Bin}\;\Varid{op}\;\Varid{x1}\;\Varid{x2}),(\Varid{eval\char95 exp}\;\Varid{v}\;(\Conid{Bin}\;\Conid{Sum}{}\<[E]%
+\\
+\>[35]{}\hsindent{6}{}\<[41]%
+\>[41]{}(\Conid{Bin}\;\Conid{Product}\;\Varid{x1}\;(\Conid{N}\;\Varid{y2}))\;(\Conid{Bin}\;\Conid{Product}\;(\Conid{N}\;\Varid{y1})\;\Varid{x2})))){}\<[E]%
 \\
 \>[3]{}\hsindent{6}{}\<[9]%
 \>[9]{}\Varid{g4}\;(\Varid{op},(\Varid{x1},\Varid{x2})){}\<[35]%
@@ -1850,8 +1861,8 @@ seja a função pretendida.
 Apresentar de seguida a justificação da solução encontrada.
 
 
-Apartir da fórmula dada no enunciado, foi possível encontrar a seguinte fórmula recursiva para
-o cálculo do número de Catalan:
+Apartir da fórmula dada no enunciado, foi possível encontrar a seguinte fórmula 
+recursiva para o cálculo do número de Catalan:
 \begin{eqnarray}
 	C_{n+1} = \frac{4n + 2}{n + 2} * C_n
 \end{eqnarray}
@@ -1938,8 +1949,8 @@ fez para a definição do anamorfismo. Quanto aos outros casos, o resultado seri
 exatamente aquele que se pretende na definição de deCasteljau fornecida.
 
 O catamorfismo terá, agora, apenas de fazer o cálculo para OverTime NPoint no caso
-de receber o par de OverTime NPoint vindo do anamorfismo. Para isso, é chamado o catamorfismo
-definido acima, o calcLine, tal como na definição original fornecida.
+de receber o par de OverTime NPoint vindo do anamorfismo. Para isso, é chamado o 
+catamorfismo definido acima, o calcLine, tal como na definição original fornecida.
 
 \begin{eqnarray*}
 \xymatrix@C=2cm{
@@ -1966,29 +1977,29 @@ definido acima, o calcLine, tal como na definição original fornecida.
 
 \begin{hscode}\SaveRestoreHook
 \column{B}{@{}>{\hspre}l<{\hspost}@{}}%
-\column{4}{@{}>{\hspre}l<{\hspost}@{}}%
+\column{5}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{7}{@{}>{\hspre}l<{\hspost}@{}}%
 \column{E}{@{}>{\hspre}l<{\hspost}@{}}%
 \>[B]{}\Varid{deCasteljau}\mathbin{::}[\mskip1.5mu \Conid{NPoint}\mskip1.5mu]\to \Conid{OverTime}\;\Conid{NPoint}{}\<[E]%
 \\
 \>[B]{}\Varid{deCasteljau}\mathrel{=}\Varid{hyloAlgForm}\;\Varid{alg}\;\Varid{coalg}\;\mathbf{where}{}\<[E]%
 \\
-\>[B]{}\hsindent{4}{}\<[4]%
-\>[4]{}\Varid{coalg}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}i_1\;\Varid{nil}{}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{coalg}\;[\mskip1.5mu \mskip1.5mu]\mathrel{=}i_1\;\Varid{nil}{}\<[E]%
 \\
-\>[B]{}\hsindent{4}{}\<[4]%
-\>[4]{}\Varid{coalg}\;[\mskip1.5mu \Varid{p}\mskip1.5mu]\mathrel{=}i_1\;\underline{\Varid{p}}{}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{coalg}\;[\mskip1.5mu \Varid{p}\mskip1.5mu]\mathrel{=}i_1\;\underline{\Varid{p}}{}\<[E]%
 \\
-\>[B]{}\hsindent{4}{}\<[4]%
-\>[4]{}\Varid{coalg}\;\Varid{l}\mathrel{=}i_2\;((\Varid{init}\;\Varid{l}),(\Varid{tail}\;\Varid{l})){}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{coalg}\;\Varid{l}\mathrel{=}i_2\;((\Varid{init}\;\Varid{l}),(\Varid{tail}\;\Varid{l})){}\<[E]%
 \\
-\>[B]{}\hsindent{4}{}\<[4]%
-\>[4]{}\Varid{alg}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}\;\mathbf{where}{}\<[E]%
+\>[B]{}\hsindent{5}{}\<[5]%
+\>[5]{}\Varid{alg}\mathrel{=}\alt{\Varid{g1}}{\Varid{g2}}\;\mathbf{where}{}\<[E]%
 \\
-\>[4]{}\hsindent{3}{}\<[7]%
+\>[5]{}\hsindent{2}{}\<[7]%
 \>[7]{}\Varid{g1}\;\Varid{l}\mathrel{=}\Varid{l}{}\<[E]%
 \\
-\>[4]{}\hsindent{3}{}\<[7]%
+\>[5]{}\hsindent{2}{}\<[7]%
 \>[7]{}\Varid{g2}\;(\Varid{l1},\Varid{l2})\mathrel{=}\lambda \Varid{pt}\to (\Varid{calcLine}\;(\Varid{l1}\;\Varid{pt})\;(\Varid{l2}\;\Varid{pt}))\;\Varid{pt}{}\<[E]%
 \\[\blanklineskip]%
 \>[B]{}\Varid{hyloAlgForm}\;\Varid{h}\;\Varid{g}\mathrel{=}\llparenthesis\, \Varid{h}\,\rrparenthesis\comp \mathopen{[\!(}\Varid{g}\mathclose{)\!]}{}\<[E]%
