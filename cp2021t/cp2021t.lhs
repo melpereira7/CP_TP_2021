@@ -1164,7 +1164,7 @@ gopt a = g_eval_exp a
 \end{code}
 
 Para os seguintes genes, o raciocínio foi simplesmente seguir as regras dadas
-no enunciado, sabendo também que agora, para cada expressão, é recebeido um par,
+no enunciado, sabendo também que agora, para cada expressão, é recebido um par,
 sendo o primeiro elemento do par a expressão original e o segundo a expressão derivada.
 
 Chegamos assim ao seguinte resultado:
@@ -1189,6 +1189,7 @@ catamorfismo eval\_exp, já acima definido.
 
 Obtemos então a seguinte definição de ad\_gen:
 
+\newpage
 \begin{code}
 ad_gen v = (either g1 (either g2 (either g3 g4)))
   where g1 () = (X, 1)
