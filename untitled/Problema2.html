@@ -4,5 +4,61 @@
   <meta charset="UTF-8">
   <title>Problema 2</title>
 </head>
-< e com recursividade
-4n+2</htm
+
+<body>
+  <h3>Problema 2</h3>
+    <p>
+      Neste problema é fornecida uma fórmula que dá o número de Catalan e é pedido
+      que, a patir dessa fórmula, se derive uma implementação da mesma mas que não
+      calcule fatoriais. Depois dessa implementação derivada, é pedido que seja
+      construído o ciclo-for que implemente essa função.
+    </p>
+
+    <p>
+      Derivamos então uma implementação recursiva de C<sub>n</sub> sem fatoriais,
+      através da definição do triângulo de Pascal. Apresentamos de seguida os
+      cálculos efetuados:
+      <img src="https://cdn.discordapp.com/attachments/816997055359877162/856320354665889822/unknown.png" alt="dedução Catalan sem fatorial"/>
+      <br>
+      Ficamos, então com o seguinte: C<sub>n+1</sub> = (4n+2)/(n+2) * C<sub>n</sub>.
+    </p>
+
+    <p>
+      A partir daqui, foi necessário criar recursividade mútua, para ser possível
+      definir o ciclo-for.
+    </p>
+
+    <p>
+      Foram definidas duas funções, uma que calcula o dividendo da divisão, e
+      outra que calcula o divisor.
+    </p>
+
+    <p>
+      Para as definir, baseamo-nos num exemplo do caderno da disciplina (pag. 112)
+      em que a função ns é definida com recursividade mútua.
+    </p>
+
+    <p>
+      A função dividendo deve calcular a seguinte expressão, dependente do valor de n:
+      4n+2. Como caso base temos que se n = 0, então 4*0 + 2 = 2, para os restantes
+      casos, o objetivo será adicionar 4, n vezes, então, ficaremos com a seguinte
+      definição:
+    </p>
+      <ul>
+        <li>dividendo 0 = 2</li>
+        <li>dividendo (n+1) = 4 + dividendo n</li>
+      </ul>
+
+    <p>
+      A função divisor deve calcular a expressão n+2, dependendo do valor de n.
+      Como caso base temos então que se n = 0, n+2 = 2, para os restantes, o
+      raciocínio é o mesmo que na função anterior, ficamos então com:
+    </p>
+      <ul>
+        <li>divisor 0 = 2</li>
+        <li>divisor (n+1) = 1 + divisor n</li>
+      </ul>
+
+</body>
+
+</html>
